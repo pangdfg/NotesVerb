@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: notesverb-postgres
+    environment:
+      POSTGRES_USER: notesverb
+      POSTGRES_PASSWORD: notesverb123
+      POSTGRES_DB: notesverb
+    ports:
+      - "5432:5432"
+    networks:
+      - notesverb-network
+
+networks:
+  notesverb-network:
+    driver: bridge
