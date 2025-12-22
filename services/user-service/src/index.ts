@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
+import usersRoutes from "./routes.js";
+
 
 import {
   corsOptions,
@@ -20,7 +22,8 @@ app.use(helmet());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-
+// API routes
+app.use("/users", usersRoutes);
 app.get("/health", healthCheck);
 
 app.use(errorHandler);
